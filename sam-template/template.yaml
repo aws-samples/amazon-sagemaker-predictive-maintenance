@@ -242,7 +242,7 @@ Resources:
     Type: AWS::SageMaker::NotebookInstance
     Properties: 
       VolumeSizeInGB: 5
-      DefaultCodeRepository: https://github.com/awslabs/predictive-maintenance-using-machine-learning
+      DefaultCodeRepository: https://github.com/aws-samples/amazon-sagemaker-predictive-maintenance
       DirectInternetAccess: "Enabled"
       InstanceType: "ml.t2.2xlarge"
       RoleArn: !GetAtt SageMakerNotebookRole.Arn
