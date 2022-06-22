@@ -1,0 +1,21 @@
+#
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+#
+
+version = 0.1
+[default]
+[default.build.parameters]
+
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "nrt-streaming-inference"
+region = "us-east-1"
+confirm_changeset = false
+capabilities = [
+    "CAPABILITY_IAM",
+    "CAPABILITY_NAMED_IAM"
+]
+parameter_overrides = [
+  "GlueScriptsBucket=sample-script-bucket-123456789-us-east-1"
+]
