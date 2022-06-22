@@ -29,15 +29,16 @@ For our predictive maintenance use case, we assume that device sensors stream va
 
 The following diagram shows the architecture of our overall solution.
 
-![arch](images/NRT ML Inference Reference Arch.png) 
+![arch](https://github.com/aws-samples/amazon-sagemaker-predictive-maintenance/blob/94ea3a0bc82ff52423897454f1c36c8a3e961ae7/images/NRT%20ML%20Inference%20Reference%20Arch.png)
 
-The solution broadly consists of the following sections, which are explained in detail subsequently:
+The solution broadly consists of the following sections:
 
 -	Streaming Data Source & Ingestion - We use Amazon Kinesis Data Streams to collect streaming data from the field sensors at scale and make available for further processing
 -	Near Real-time Feature Engineering - We use AWS Glue Streaming jobs to read data from a Kinesis Data Stream and perform data processing and feature engineering, before storing the derived features in a S3 location. Amazon S3 provides reliable and cost-effective option to store large volumes of data. 
 -	Model Training & Deployment - We use the AI4I predictive maintenance dataset from UCI Data Repository to train a ML model based on XGBoost algorithm using Amazon SageMaker. We then deploy the trained model to an asynchronous SageMaker endpoint.
 -	Near Real-time ML Inference - Once the features are available in S3, we need to generate inferences from the deployed model in near real time. Asynchronous SageMaker endpoints are well suited for this requirement as they support larger payload sizes (up to 1 GB) and can generate inferences within minutes (up to a maximum of 15 minutes). We use S3 event notifications to run a Lambda function to invoke a SageMaker endpoint, asynchronously. SageMaker asynchronous endpoints accept S3 locations as input, generate inference from the deployed model and write these inferences back to S3 in near real time.
 
+Refer to [this blog](https://github.com/aws-samples/amazon-sagemaker-predictive-maintenance) for details on how to deploy the solution.
 
 ## Security
 
