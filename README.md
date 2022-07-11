@@ -38,7 +38,7 @@ The solution broadly consists of the following sections:
 -	Model Training & Deployment - We use the AI4I predictive maintenance dataset from UCI Data Repository to train a ML model based on XGBoost algorithm using Amazon SageMaker. We then deploy the trained model to a SageMaker Asynchronous Inference endpoint.
 -	Near Real-time ML Inference - Once the features are available in S3, we need to generate inferences from the deployed model in near real time. SageMaker Asynchronous Inference endpoints are well suited for this requirement as they support larger payload sizes (up to 1 GB) and can generate inferences within minutes (up to a maximum of 15 minutes). We use S3 event notifications to run a Lambda function to invoke a SageMaker endpoint, asynchronously. SageMaker Asynchronous Inference endpoints accept S3 locations as input, generate inference from the deployed model and write these inferences back to S3 in near real time.
 
-Refer to [this blog](
+Refer to this [blog](
 https://aws.amazon.com/blogs/machine-learning/build-a-predictive-maintenance-solution-with-amazon-kinesis-aws-glue-and-amazon-sagemaker/) for details on how to deploy the solution.
 
 ## Security
